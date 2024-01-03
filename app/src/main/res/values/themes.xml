@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/myprimary</item>
+        <item name="colorPrimaryVariant">@color/myprimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/mysecondary</item>
+        <item name="colorSecondaryVariant">@color/mysecondary</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">@color/offwhite</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="OtpBoxStyle">
+        <item name="android:layout_width">50dp</item> <!-- Adjust the width of each box -->
+        <item name="android:layout_height">50dp</item> <!-- Adjust the height of each box -->
+        <item name="android:background">@drawable/otp_box_bg</item> <!-- Use the custom background -->
+        <item name="android:textSize">24sp</item> <!-- Adjust the text size -->
+        <item name="android:gravity">center</item> <!-- Center the text within the box -->
+        <item name="android:inputType">none</item> <!-- Disable keyboard input -->
+    </style>
+
+</resources>
