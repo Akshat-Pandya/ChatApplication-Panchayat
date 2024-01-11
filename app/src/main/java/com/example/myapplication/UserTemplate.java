@@ -1,22 +1,30 @@
 package com.example.myapplication;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class UserTemplate {
     String username;
     String phonenumber;
     String timestamp;
+    String userId;
 
     public UserTemplate() {
         // empty constructor
     }
 
-    public UserTemplate(String username, String phonenumber, String timestamp) {
+    public UserTemplate(String username, String phonenumber, String timestamp,String userId) {
         this.username = username;
         this.phonenumber = phonenumber;
         this.timestamp = timestamp;
+        this.userId=userId;
     }
 
     public String getPhonenumber() {
         return phonenumber;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 
     public void setPhonenumber(String phonenumber) {
@@ -38,6 +46,8 @@ public class UserTemplate {
     public String getUsername() {
         return username;
     }
+
+
 
 }
 

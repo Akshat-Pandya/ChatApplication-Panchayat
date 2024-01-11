@@ -11,4 +11,7 @@
     <color name="mysecondary">#FDD835</color>
     <color name="offwhite">#FDFDFD</color>
     <color name="gray">#c3c3c3</color>
+    <color name="koala">#89DF8F</color>
+    <color name="fox">#FD9E35</color>
+
 </resources>

@@ -20,6 +20,7 @@ public class LoginUserName extends AppCompatActivity {
     private EditText editTextusername;
     private Button startChatting;
     private String username;
+    private String phonenumber;
     private FirebaseDatabase db;
     private DatabaseReference rf;
     @Override
@@ -29,7 +30,10 @@ public class LoginUserName extends AppCompatActivity {
         editTextusername=findViewById(R.id.editTextUsername);
         startChatting=findViewById(R.id.myButton3);
         String phonenumber=getIntent().getExtras().getString("phonenumber");
+        getIntent().getExtras().getString("phonenumber");
+
         updateUsernameIfSaved();
+
 
         startChatting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,16 +41,17 @@ public class LoginUserName extends AppCompatActivity {
                 if(!editTextusername.getText().toString().isEmpty())
                 {
                     username=editTextusername.getText().toString();
-                    UserTemplate user=new UserTemplate(username,phonenumber,FirebaseUtility.getCurrentDateTime());
+                    UserTemplate user=new UserTemplate(username,phonenumber,FirebaseUtility.getCurrentDateTime(),FirebaseUtility.getCurrentUserId());
                     db=FirebaseDatabase.getInstance();
                     rf=db.getReference("ChatApp Users");
-                    rf.child(FirebaseUtility.getCurrentUserId()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    rf.child(phonenumber).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())
                             {
                                 Toast.makeText(LoginUserName.this, "Task successful", Toast.LENGTH_SHORT).show();
                                 Intent intent=new Intent(LoginUserName.this,MainActivity.class);
+                                intent.putExtra("username",username);
                                 startActivity(intent);
                                 finish();
 
@@ -68,7 +73,7 @@ public class LoginUserName extends AppCompatActivity {
     private void updateUsernameIfSaved() {
         db=FirebaseDatabase.getInstance();
         rf=db.getReference("ChatApp Users");
-        rf.child(FirebaseUtility.getCurrentUserId()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        rf.child(phonenumber).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if(task.isSuccessful())

@@ -41,6 +41,7 @@
     </RelativeLayout>
 
     <FrameLayout
+        android:id="@+id/mainFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/myappbar"
@@ -54,19 +55,18 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnavigation"
-        android:backgroundTint="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/offwhite"
+
+        app:itemIconTint="@color/bottom_navigation_itemselection"
+        app:itemTextColor="@color/black"
+        app:itemTextAppearanceActive="@color/purple_500"
+        app:itemActiveIndicatorStyle="@color/purple_500"
+        app:itemTextAppearanceActiveBoldEnabled="true"
         android:layout_alignParentBottom="true"
-        android:background="@color/black"
         app:menu="@menu/my_bottom_navigation"
         />
 
     <!--For adding items to the bottom navigation view create a custom menu -->
-
-
-
-        
-
-
 </RelativeLayout>
