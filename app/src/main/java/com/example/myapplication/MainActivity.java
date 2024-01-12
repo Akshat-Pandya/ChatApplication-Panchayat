@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
             String usernameX=getIntent().getExtras().getString("usernameX");
             String phonenumberX=getIntent().getExtras().getString("phonenumberX");
             String userIdX=getIntent().getExtras().getString("userIdX");
-            Log.d("USERNAMEXX",usernameX);
-            chatFragment1.loadReceivedId(userIdX);
+            Log.d("TESTIFY",usernameX);
+            Log.d("TESTIFY",phonenumberX);
+            Log.d("TESTIFY",userIdX);
         }
     }
 }

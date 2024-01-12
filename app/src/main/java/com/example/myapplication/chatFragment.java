@@ -14,13 +14,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class chatFragment extends Fragment {
 
+    /*
     private RecyclerView recyclerView;
     private FirebaseDatabase db;
     private DatabaseReference ref;
     private String senderUserId;
     private String receiverUserId;
     private String chatid;
-    private String receiverid;
+    private String receiverid;*/
     public chatFragment() {
         // Required empty public constructor
     }
@@ -29,25 +30,9 @@ public class chatFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_chat,container,false);
-        recyclerView=view.findViewById(R.id.recycler);
-        senderUserId=FirebaseUtility.getCurrentUserId();
-
-
-        db=FirebaseDatabase.getInstance();
-        ref=db.getReference("Chats").child(chatid);
-        sendMessage("This is my first sent message . Hope everything goes well !  ");
-
-
-
-
-
+      //  recyclerView=view.findViewById(R.id.recycler);
         return view;
     }
 
-    private void sendMessage(String s) {
-    }
 
-    public void loadReceivedId(String userIdX) {
-        receiverid=userIdX;
-    }
 }

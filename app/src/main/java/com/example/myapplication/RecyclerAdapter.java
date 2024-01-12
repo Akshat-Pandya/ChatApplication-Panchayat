@@ -71,6 +71,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 intent.putExtra("usernameX",dataset.get(holder.getAdapterPosition()).getUsername());
                 intent.putExtra("phonenumberX",dataset.get(holder.getAdapterPosition()).getPhonenumber());
                  intent.putExtra("userIdX",dataset.get(holder.getAdapterPosition()).getUserId());
+                 intent.putExtra("KEY","1");
                 context.startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); // startActivity is not directly available inside the adapter class. It is a part of Context class .
                 if (context instanceof Activity) {
                     ((Activity) context).finish();
