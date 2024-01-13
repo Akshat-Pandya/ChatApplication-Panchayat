@@ -1,20 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:background="@color/offwhite"
+    android:background="@color/black"
     tools:context=".chatFragment">
+    <RelativeLayout
+        android:id="@+id/userststatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tab_background"
+        android:backgroundTint="@color/myprimary"
+        android:padding="8dp"
+        tools:ignore="NotSibling">
+
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/circularbackground_imageview"
+            android:padding="4dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/usernameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\t\t\tSelect user to chat with "
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:layout_toEndOf="@id/profileImageView"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"/>
+    </RelativeLayout>
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ScrollView
+        android:id="@+id/chatscroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="35sp"
-        android:textColor="@color/black"
-        android:text="Chat Fragment" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userststatus"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_chat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/deltaRelative"
+            android:layout_marginBottom="100dp"
+
+            android:background="@color/black" />
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/deltaRelative"
+        android:background="@color/myprimary"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="4dp">
+        <EditText
+            android:id="@+id/messagetext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:hint="Message to send"
+            android:layout_centerVertical="true"
+            android:textColorHint="@color/gray"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edittext_background"
+            android:padding="6dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/sendButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#8E24AA"
+            android:padding="6dp"
+            android:background="@drawable/circularbg"
+            android:src="@drawable/baseline_send_24"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            app:tint="@color/offwhite" />
 
 
-</LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

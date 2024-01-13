@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("TESTIFY",usernameX);
             Log.d("TESTIFY",phonenumberX);
             Log.d("TESTIFY",userIdX);
+            chatFragment1.setData(usernameX,phonenumberX,userIdX);
         }
     }
 }
