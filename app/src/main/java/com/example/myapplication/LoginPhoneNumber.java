@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
 
 public class LoginPhoneNumber extends AppCompatActivity {
@@ -32,18 +33,21 @@ public class LoginPhoneNumber extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                if(!ccp.isValidFullNumber())
-                {
-                   phonenumber.setError("Invalid phone number ! ");
-                   progressBar.setVisibility(View.INVISIBLE);
+
+                    if (!ccp.isValidFullNumber()) {
+                        phonenumber.setError("Invalid phone number ! ");
+                        progressBar.setVisibility(View.INVISIBLE);
+                    } else {
+
+                        FirebaseUtility.setCurrentUserPhonenumber(ccp.getFullNumberWithPlus());
+
+                        Intent intent = new Intent(LoginPhoneNumber.this, LoginOTP.class);
+                        intent.putExtra("phonenumber", ccp.getFullNumberWithPlus());
+                        startActivity(intent);
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
                 }
-                else {
-                    Intent intent=new Intent(LoginPhoneNumber.this,LoginOTP.class);
-                    intent.putExtra("phonenumber",ccp.getFullNumberWithPlus());
-                    startActivity(intent);
-                    progressBar.setVisibility(View.INVISIBLE);
-                }
-            }
+
         });
 
 

@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class FirebaseUtility {
+
+    private static String phonenumber;
     public static String getCurrentUserId()
     {
         return FirebaseAuth.getInstance().getUid();
@@ -30,5 +32,21 @@ public class FirebaseUtility {
 
         // Format the current date and time using the defined format
         return currentDateTime.format(formatter);
+    }
+    public static String getCurrentUserPhonenumber(){
+        return phonenumber;
+    }
+    public static void setCurrentUserPhonenumber(String number)
+    {
+        number.replace(" ","");
+        phonenumber=number;
+    }
+
+    public static boolean checkUserSignedIn() {
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null)
+        {
+            return true;
+        }
+        return false;
     }
 }

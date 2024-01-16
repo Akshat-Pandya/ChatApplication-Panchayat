@@ -11,8 +11,8 @@
         android:id="@+id/profileImageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#F4511E"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/purple_200"
         android:padding="10dp"
         android:background="@drawable/circle"
         android:layout_centerHorizontal="true"
@@ -24,27 +24,25 @@
         android:id="@+id/usernameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint=""
-        android:textColorHint="@color/gray"
+        android:text="John Doe"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:layout_below="@id/profileImageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"/>
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/bioTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/usernameTextView"
-        android:background="@drawable/roundertextbox"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="16dp"
         android:gravity="start"
-        android:padding="8dp"
-        android:text=""
+        android:padding="9dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         android:textColor="@color/white"
         android:textSize="18sp" />
     <TextView
@@ -53,7 +51,7 @@
         android:layout_height="wrap_content"
         android:text="~ Bio"
         android:textStyle="bold"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="7dp"
         android:layout_alignParentRight="true"
         android:textSize="18sp"
         android:textColor="#FDD835"
@@ -63,21 +61,21 @@
         android:id="@+id/likesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Likes on profile: -"
+        android:text="Likes on profile: 100"
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"
         android:textSize="19sp"
         android:layout_marginStart="15dp"
         android:layout_below="@id/biotag"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/jokespostedTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/likesTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+       android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="Jokes posted : 20"
         android:textColor="@color/white"
         android:textSize="19sp" />
@@ -86,23 +84,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jokes liked : 132"
+
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:textSize="19sp"
         android:layout_below="@id/jokespostedTextview"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="20dp"/>
 
 
     <TextView
-        android:id="@+id/editProfileTextView"
+        android:id="@+id/editProfileButton"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:layout_below="@id/jokesLiked"
         android:layout_centerInParent="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/roundertextbox"
         android:backgroundTint="#F4511E"
         android:defaultFocusHighlightEnabled="true"
+        android:fontFamily="@font/asap"
         android:gravity="center"
         android:padding="5dp"
         android:text="Edit Profile"

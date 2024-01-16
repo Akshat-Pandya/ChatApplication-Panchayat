@@ -23,6 +23,7 @@ public class LoginUserName extends AppCompatActivity {
     private String username;
     private String phonenumber;
     private FirebaseDatabase db;
+    private  UserTemplate user ;
     private DatabaseReference rf;
 
     @Override
@@ -47,7 +48,7 @@ public class LoginUserName extends AppCompatActivity {
                     if(task.getResult().exists())
                     {
                         DataSnapshot dataSnapshot=task.getResult();
-                        UserTemplate user=dataSnapshot.getValue(UserTemplate.class);
+                         user=dataSnapshot.getValue(UserTemplate.class);
                         if(user.getUsername()!=null)
                         {
                             editTextusername.setText(user.getUsername());
@@ -56,16 +57,13 @@ public class LoginUserName extends AppCompatActivity {
                 }
             }
         });
-
-
         startChatting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!editTextusername.getText().toString().isEmpty()) {
                     username = editTextusername.getText().toString();
-                    UserTemplate user = new UserTemplate(username, phonenumber, FirebaseUtility.getCurrentDateTime(), FirebaseUtility.getCurrentUserId());
-                    db = FirebaseDatabase.getInstance();
-                    rf = db.getReference("ChatApp Users");
+                    if(user==null){
+                        user = new UserTemplate(username, phonenumber, FirebaseUtility.getCurrentDateTime(), FirebaseUtility.getCurrentUserId());
                     rf.child(phonenumber).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -81,16 +79,21 @@ public class LoginUserName extends AppCompatActivity {
                             }
                         }
                     });
-                } else {
+                }
+                    else{
+                        user.setUsername(username);
+                        Intent intent = new Intent(LoginUserName.this, MainActivity.class);
+                        intent.putExtra("username", username);
+                        startActivity(intent);
+                        finish();
+                    }
+                   }
+                else {
                     Toast.makeText(LoginUserName.this, "Please enter username", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
     }
-
-        private void updataUsernameIfSaved(){
-
-        }
 
     }

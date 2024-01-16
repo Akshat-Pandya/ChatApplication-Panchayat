@@ -50,15 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        if(getIntent().getExtras().getString("KEY")!=null)
-        {
-            String usernameX=getIntent().getExtras().getString("usernameX");
-            String phonenumberX=getIntent().getExtras().getString("phonenumberX");
-            String userIdX=getIntent().getExtras().getString("userIdX");
-            Log.d("TESTIFY",usernameX);
-            Log.d("TESTIFY",phonenumberX);
-            Log.d("TESTIFY",userIdX);
-            chatFragment1.setData(usernameX,phonenumberX,userIdX);
-        }
+        if(ImageHolder.getUsernameX()!=null && ImageHolder.getPhonenumberX()!=null && ImageHolder.getUserIdX()!=null){
+        chatFragment1.setData(ImageHolder.getUsernameX(), ImageHolder.getPhonenumberX(), ImageHolder.getUserIdX());}
     }
 }

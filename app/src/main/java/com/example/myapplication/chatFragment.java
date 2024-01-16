@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +51,7 @@ public class chatFragment extends Fragment {
     private EditText messagesendtext;
     private ImageView sendButton,usericon;
     private TextView chatwith_username_textview;
+    private RelativeLayout userStatus;
 
     private RecyclerAdapterChatFragment adapterChatFragment;
     private ArrayList<MessageModel> dataList;
@@ -62,16 +65,38 @@ public class chatFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_chat,container,false);
+        userStatus=view.findViewById(R.id.userstatus);
+
         recyclerView=view.findViewById(R.id.recycler_chat);
         sendButton=view.findViewById(R.id.sendButton);
         messagesendtext=view.findViewById(R.id.messagetext);
         scrollView=view.findViewById(R.id.chatscroll);
         chatwith_username_textview=view.findViewById(R.id.usernameTextView);
         usericon=view.findViewById(R.id.profileImageView);
+
+
+        userStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(chatwith_username_textview.getText().toString().matches(""))
+                {
+                    Toast.makeText(getContext(), "Please select the chat with user :)", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    // Open the profile of selected user
+                    Intent intent=new Intent(getContext(),ChatWithUserProfile.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+
         if(receiverusername!=null&&ImageHolder.getImageDrawable()!=null){
         chatwith_username_textview.setText(receiverusername);
         usericon.setImageDrawable(ImageHolder.getImageDrawable());
         }
+
         adjustScrolling();
         db=FirebaseDatabase.getInstance();
         ref=db.getReference("Chats");
