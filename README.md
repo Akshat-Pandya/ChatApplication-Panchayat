@@ -42,4 +42,3 @@ To get started with Panchayat, follow these simple steps:
 
 ---
 
-Feel free to use and customize this README to better fit your project's specific details and any additional information you want to include.
